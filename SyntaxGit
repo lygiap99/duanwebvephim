@@ -1,0 +1,26 @@
+1. Thêm một file cụ thể:
+git add <ten_file>
+2. Commit thay đổi
+git commit -m "Thông điệp commit"
+3. Đẩy commit lên nhánh hiện tại
+git push origin <ten_nhanh>
+4. Đẩy commit lên nhánh khác
+Chuyển sang nhánh khác (nếu cần):
+git checkout <ten_nhanh> 
+Đẩy commit lên nhánh đó:
+git push origin <ten_nhanh>
+5. Tạo và đẩy lên nhánh mới
+git checkout -b <ten_nhanh_moi>
+Đẩy commit lên nhánh mới:
+git push origin <ten_nhanh_moi>
+6. Đẩy lên nhánh mặc định (main hoặc master)
+git checkout main
+Đẩy commit lên nhánh đó:
+git push origin main
+7. Kiểm tra trạng thái sau khi đẩy
+git status
+
+đồng bộ từ nhánh sang main 
+-> chuyển sang nhánh main - git checkout main 
+->Kéo (pull) các thay đổi mới nhất từ GitHub vào main - git pull origin main
+-> Hợp nhất (merge) nhánh làm việc của bạn vào main - git merge phamvuminhquan
