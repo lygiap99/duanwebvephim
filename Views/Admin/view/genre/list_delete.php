@@ -24,18 +24,29 @@
                             </tr>
                         </thead>
                         <tbody>
-           
-                               <tr>
-                                <td>1</td>
-                                <td>hành động</td>
+                        <?php 
+                                $i=1;
+                                foreach ($listdelete as $item){
+                                     extract($item);
+                                     $restoreGenre="index.php?act=restoreGenre&idGenre=".$id_danh_muc;
+                                     ?>
+                                <tr>
+                                    <td><?= $i?></td>
+                                    
+                                    
+                                    <td><?= $ten_danh_muc?></td>
+                                    
+
                                 <td>
                                  
-                                    <a onclick="return khoi_phuc_danh_muc()" href="index.php?act=restoreGenre&idGenre=<?=$dmdx['id_danh_muc'] ?>" class="btn btn-danger btn-sm deleteCategory" data-id="1">
+                                    <a onclick=" return confirmRestore()" href="<?= $restoreGenre?>" class="btn btn-danger btn-sm deleteCategory" data-id="1">
                                         <i class="fas fa-undo-alt"></i>
                                     </a>
                                 </td>
                             </tr>
-                       
+                            <?php
+                                $i++;
+                                }?>
                           
                          
                             <!-- Add more rows dynamically here using JavaScript -->
@@ -65,3 +76,8 @@
 
 </div>
 <!-- /.container-fluid -->
+<script>
+        function confirmRestore() {
+            return confirm('Bạn có chắc chắn muốn khôi phục mục này không?');
+        }
+    </script>

@@ -1,22 +1,74 @@
 <?php
 session_start();
 require_once './view/header.php';
+require_once  '../../Models/pdo.php';
+require_once  '../../Models/danhmuc.php';
+
 # Xử lý Swich case.
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
         case 'genre':
+            $listdanhmuc=getdanhmuc();
+            // var_dump($listdanhmuc);
             require_once './view/genre/list.php';
             break;
         case 'addGenre':
-            # code...
+            if(isset($_POST['add_Btn'])&&$_POST['add_Btn']){
+                $ten_danh_muc=$_POST['ten_danh_muc'];
+                $check=checkdanhmuc($ten_danh_muc);
+                if($ten_danh_muc!=""&& $check==false){
+                    insertdanhmuc($ten_danh_muc);
+                    $thong_bao="Thêm danh mục thành công.";
+
+                }else{
+                    $thong_bao="Thông tin bị trống hoặc đã tồn tại. Mời bạn nhập lại thông tin.";
+                }
+            }
+            $listdanhmuc=getdanhmuc();
+            require_once './view/genre/list.php';
+
+            break;
+        case 'deleteGenre' :
+            if(isset($_GET['idGenre'])&& $_GET['idGenre']){
+                $id_danh_muc=$_GET['idGenre'];
+                deletedanhmuc($id_danh_muc);
+            }
+            $listdanhmuc=getdanhmuc();
+            require_once './view/genre/list.php';
             break;
         case 'trashCanGenre':
+            $listdelete= getdanhmucdelete();
             require_once './view/genre/list_delete.php';
             break;
         case 'restoreGenre':
-            # code...
+            # code...khôi phục
+            if(isset($_GET['idGenre'])&& $_GET['idGenre']){
+                $id_danh_muc=$_GET['idGenre'];
+                restoredanhmuc($id_danh_muc);
+            }
+            $listdelete= getdanhmucdelete();
+            require_once './view/genre/list_delete.php';
+
             break;
+        case 'editGenre':
+            if(isset($_GET['idGenre'])&& $_GET['idGenre']){
+                $id_danh_muc=$_GET['idGenre'];
+                $getone=getonedanhmuc($id_danh_muc);
+            }
+            require_once './view/genre/fix.php';
+            break;
+        case 'updateGenre':
+            if(isset($_POST['sua_btn'])&& $_POST['sua_btn']){
+                $id_danh_muc=$_POST['id_danh_muc'];
+                $ten_danh_muc=$_POST['ten_danh_muc'];
+                updatedanhmuc($id_danh_muc,$ten_danh_muc);
+                $thong_bao="Cập nhập thành công.";
+            }
+            $listdanhmuc=getdanhmuc();
+            require_once './view/genre/list.php';
+            break;
+
         case 'film':
             require_once './view/film/list.php';
             break;

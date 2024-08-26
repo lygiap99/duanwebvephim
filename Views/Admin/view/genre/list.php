@@ -1,3 +1,8 @@
+<script>
+        function confirmDelete() {
+            return confirm('Bạn có chắc chắn muốn xóa mục này không?');
+        }
+    </script>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -25,23 +30,39 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $i=1;
+                                foreach ($listdanhmuc as $item){
+                                     extract($item);
+                                     $deletedanhmuc="index.php?act=deleteGenre&idGenre=".$id_danh_muc;
+                                     $suadanhmuc="index.php?act=editGenre&idGenre=".$id_danh_muc;
+                                     ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Hành động</td>
+                                    <td><?= $i?></td>
+                                    
+                                    
+                                    <td><?= $ten_danh_muc?></td>
+                                    
+
+                                  
                                     <td>
                                         <!-- View details link with icon -->
                                         <!-- Edit link with icon -->
-                                        <a href="index.php?act=editGenre&idGenre"
+                                        <a href="<?=$suadanhmuc?>"
                                             class="btn btn-primary btn-sm editCategory" data-id="1">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <!-- Delete link with icon -->
-                                        <a onclick="return xoa_danh_muc()" href="index.php?act=deleteGenre&idGenre"
+                                        <a onclick=" return confirmDelete()" href="<?=$deletedanhmuc?>"
                                             class="btn btn-danger btn-sm deleteCategory" data-id="1">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                <?php
+                                $i++;
+                                }?>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -49,12 +70,18 @@
                         <form class="input-group mb-3 w-50" action="index.php?act=addGenre" method="post">
                             <input name="ten_danh_muc" type="text" class="form-control" id="inputCategoryName"
                                 placeholder="Nhập tên thể loại phim...">
+                               
                             <div class="input-group-append">
 
-                                <input class="btn btn-success" id="btnAddCategory" type="submit" name="addBtn"
+                                <input class="btn btn-success" id="btnAddCategory" type="submit" name="add_Btn"
                                     value="Thêm mới">
                             </div>
-                        </form>
+                        </form> 
+                        <?php if(isset($thong_bao)){
+                                    echo"<p >".$thong_bao."</p>";
+                                }
+                                ?>
+                        
                     </div>
                 </div>
             </div>
