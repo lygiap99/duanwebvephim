@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once './Models/pdo.php';
-require_once './Globals.php';
 require_once './Views/header.php';
 # Xử lý Swich case.
 if (isset($_GET['act'])) {

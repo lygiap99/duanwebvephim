@@ -21,7 +21,7 @@
             <div class="footer-top">
                 <div class="logo">
                     <a href="index.php?act=home">
-                        <h5>FPOLY Cinema</h5>
+                        <h5>STAR CINEMA</h5>
                     </a>
                 </div>
                 <ul class="social-icons">
