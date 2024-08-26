@@ -2,16 +2,16 @@
 session_start();
 require_once './Models/pdo.php';
 require_once './Globals.php';
-
+require_once './Views/header.php';
 # Xử lý Swich case.
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
         case 'register':
-            # chức năng đăng ký
+            require_once './Views/Account/register.php';
             break;
         case 'logIn':
-            # chức năng đăng nhập
+            require_once './Views/Account/login.php';
             break;
         case 'logOut':
             # chức năng đăng xuất
@@ -50,7 +50,10 @@ if (isset($_GET['act'])) {
             # chi tiết phim
             break;
         default:
-            # code...
+        require_once './Views/main.php';
             break;
     }
+}else{
+    require_once './Views/main.php';
 }
+require_once './Views/footer.php';
