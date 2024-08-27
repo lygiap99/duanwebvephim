@@ -58,7 +58,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <a onclick="khoi_phuc_toan_bo_danh_muc()" href="index.php?act=khoi_phuc_toan_bo_danh_muc">
+                        <a onclick="return confirmRestoreAll()" href="index.php?act=restoreGenreAll">
                         <button class="btn btn-outline-primary" type="button" id="btnRestoreAll">
                             <i class="fas fa-undo mr-2"></i> Khôi phục toàn bộ
                         </button>
@@ -79,5 +79,8 @@
 <script>
         function confirmRestore() {
             return confirm('Bạn có chắc chắn muốn khôi phục mục này không?');
+        }
+        function confirmRestoreAll() {
+            return confirm('Bạn có chắc chắn muốn khôi phục toàn bộ không?');
         }
     </script>

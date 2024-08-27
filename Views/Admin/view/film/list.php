@@ -18,9 +18,14 @@
                     <label for="filterCategory" class="mr-2">Loại phim:</label>
                     <select name="danh_muc" class="form-control" id="filterCategory">
                         <option value="0">Tất cả</option>
+                        <?php foreach($listdanhmuc as $item){
+                            extract($item);
+                            ?>
 
-                        <option value="">Hành động</option>
-
+                        <option value="<?=$id_danh_muc?>"><?=$ten_danh_muc?></option>
+                        
+                        <?php
+                            }?>
                     </select>
                 </div>
                 <input name="tim_btn" type="submit" class="btn btn-primary" value="Lọc">

@@ -35,3 +35,7 @@ function getdanhmucdelete(){
     $listdelete=pdo_query($sql);
     return $listdelete;
 }
+function restoreAlldanhmuc(){
+    $sql="update danhmuc set trang_thai=0 where trang_thai=1";
+    pdo_execute($sql);
+}

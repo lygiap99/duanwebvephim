@@ -32,7 +32,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../index.php">
-                <div class="sidebar-brand-text mx-3 text-start">StarCinema.</div>
+                <div class="sidebar-brand-text mx-3 text-start">Star Cinema</div>
             </a>
 
             <!-- Divider -->
@@ -84,12 +84,12 @@
             </li>
             <!-- Quản lý phòng chiếu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVoucher"
-                    aria-expanded="true" aria-controls="collapseVoucher">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoom"
+                    aria-expanded="true" aria-controls="collapseRoom">
                     <i class="fas fa-fw fa-ticket-alt"></i>
                     <span>Quản lý phòng chiếu</span>
                 </a>
-                <div id="collapseVoucher" class="collapse" aria-labelledby="headingVoucher"
+                <div id="collapseRoom" class="collapse" aria-labelledby="headingRoom"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 

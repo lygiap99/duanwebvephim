@@ -51,6 +51,11 @@ if (isset($_GET['act'])) {
             require_once './view/genre/list_delete.php';
 
             break;
+        case 'restoreGenreAll':
+            restoreAlldanhmuc();
+            $listdelete= getdanhmucdelete();
+            require_once './view/genre/list_delete.php';
+            break;
         case 'editGenre':
             if(isset($_GET['idGenre'])&& $_GET['idGenre']){
                 $id_danh_muc=$_GET['idGenre'];
@@ -70,6 +75,7 @@ if (isset($_GET['act'])) {
             break;
 
         case 'film':
+            $listdanhmuc=getdanhmuc();
             require_once './view/film/list.php';
             break;
         case 'filmDetail':
