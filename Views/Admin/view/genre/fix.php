@@ -1,4 +1,8 @@
-
+<?php
+if(isset($getone)&& is_array($getone)){
+    extract($getone);
+}
+?>
 <div class="container-fluid">
 
 <!-- Page Heading -->
@@ -18,9 +22,9 @@
             <div class="card-body">
             
                 <div class="input-group mb-3 w-50">
-               <form class="input-group mb-3 w-50"   action="index.php?act=update_danh_muc" method="post" >
-               <input name="id_danh_muc" type="hidden" class="form-control" id="inputCategoryName"value="<?=$one_danh_muc['id_danh_muc'] ?>" >
-               <input name="ten_danh_muc" type="text" class="form-control" id="inputCategoryName" value="<?=$one_danh_muc['ten_danh_muc'] ?>" >
+               <form class="input-group mb-3 w-50"   action="index.php?act=updateGenre" method="post" >
+               <input name="id_danh_muc" type="hidden" class="form-control" id="inputCategoryName"value="<?=$id_danh_muc ?>" >
+               <input name="ten_danh_muc" type="text" class="form-control" id="inputCategoryName" value="<?=$ten_danh_muc ?>" >
                     <div class="input-group-append">
                        
                         <input class="btn btn-success" id="btnAddCategory" type="submit" name="sua_btn" value="Cập nhật">
@@ -31,10 +35,11 @@
                </form>
          
                 </div>
-                <span style="color:red;"><?php if(isset($thongbao)){
-                  echo $thongbao;
+                <span style="color:red;"><?php if(isset($thong_bao)){
+                 echo"<p >".$thong_bao."</p>";
+                                
                 }else {
-                  $thongbao = "";
+                  echo $thong_bao = "";
                 }
                   ?></span>
             </div>
