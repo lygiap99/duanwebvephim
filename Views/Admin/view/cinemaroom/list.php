@@ -38,7 +38,7 @@ foreach ($data as $key => $room) {
                                         <!-- View details link with icon -->
 
                                         <!-- Edit link with icon -->
-                                        <a href="index.php?act=sua_size&idssz=<?= $room['id_phong'] ?>"
+                                        <a href="index.php?act=editRoom&idRoom=<?= $room['id_phong'] ?>"
                                             class="btn btn-primary btn-sm editCategory" data-id="1">
                                             <i class="fas fa-edit"></i>
                                         </a>

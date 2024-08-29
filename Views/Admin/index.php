@@ -116,6 +116,25 @@ if (isset($_GET['act'])) {
             $data = getRoom();
             require_once './view/cinemaroom/list.php';
             break;
+        case 'editRoom':
+            if(isset($_GET['idRoom'])){
+                $id_phong = $_GET['idRoom'];
+            }
+            $data =  getOneRoom($id_phong);
+            extract($data);
+            require_once './view/cinemaroom/fix.php';
+            break;
+            case 'updateRoom':
+            if(isset($_POST['updateBtn'])){
+                $id_phong = $_POST['id_phong'];
+                $ten_phong = $_POST['ten_phong'];
+                $suc_chua = $_POST['suc_chua'];
+                updateRoom($id_phong,$ten_phong,$suc_chua);
+                $thong_bao = 'Sửa thành công!';
+            }
+                $data = getRoom();
+                require_once './view/cinemaroom/list.php';
+                break;
         case 'trashCanRoom':
             $data = getRoomTr();
             require_once './view/cinemaroom/list_delete.php';

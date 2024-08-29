@@ -16,6 +16,12 @@ function getRoom(){
     $data = pdo_query($sql);
     return $data;
 }
+#show 1 phòng
+function getOneRoom($id_phong){
+    $sql = "SELECT *FROM phongchieu WHERE id_phong = '$id_phong' AND trang_thai = 0";
+    $data = pdo_query_one($sql);
+    return $data;
+}
 #show thùng rác
 function getRoomTr(){
     $sql = "SELECT *FROM phongchieu WHERE trang_thai = 1";
@@ -34,5 +40,10 @@ function restoreRoom($id_phong){
     }else{
         $sql = "UPDATE phongchieu SET trang_thai = 0 WHERE id_phong = '$id_phong'";
     }
+    pdo_execute($sql);
+}
+#sửa phòng 
+function updateRoom($id_phong,$ten_phong,$suc_chua){
+    $sql = "UPDATE phongchieu SET ten_phong = '$ten_phong',suc_chua = '$suc_chua' WHERE id_phong = '$id_phong'";
     pdo_execute($sql);
 }
