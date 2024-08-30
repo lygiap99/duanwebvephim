@@ -66,7 +66,10 @@ function getAllaccounttrash(){
 function updateAccount($ten_dang_nhap, $ho_va_ten, $hinh_anh, $phone, $vaitro){
     if($hinh_anh==""){
         $sql="update taikhoan set ten_dang_nhap='$ten_dang_nhap',ho_va_ten='$ho_va_ten',sdt='$phone',vai_tro='$vaitro'";
-        
+        pdo_execute($sql);
+    }else{
+        $sql="update taikhoan set ten_dang_nhap='$ten_dang_nhap',ho_va_ten='$ho_va_ten',hinh_anh='$hinh_anh',sdt='$phone',vai_tro='$vaitro'";
+        pdo_execute($sql);
     }
 
 }
