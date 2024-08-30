@@ -33,6 +33,7 @@
                        <?php $i=1;
                             foreach ($listTrash as $key) {
                             extract($key);
+                            $restoreAccount="index.php?act=restoreAcc&idAcc=".$id_taikhoan;
                             
                             $detailAccount="index.php?act=detailAcc&idAcc=".$id_taikhoan;
                             $anh="../../Uploads/".$hinh_anh;
@@ -58,7 +59,7 @@
                                        
 
                                         <!-- Edit link with icon -->
-                                        <a onclick=" return confirmRestore()" href="<?= $restoreGenre?>" class="btn btn-danger btn-sm deleteCategory" data-id="1">
+                                        <a onclick=" return confirmRestore()" href="<?= $restoreAccount?>" class="btn btn-danger btn-sm deleteCategory" data-id="1">
                                         <i class="fas fa-undo-alt"></i>
                                     </a>
                                        

@@ -237,6 +237,14 @@ if (isset($_GET['act'])) {
             require_once './view/account/list.php';
 
             break;
+        case 'restoreAcc':
+            if(isset($_GET['idAcc'])&& $_GET['idAcc']){
+                $id_taikhoan=$_GET['idAcc'];
+                restoreAccount($id_taikhoan);
+            }
+            $listTrash=getAllaccounttrash();
+            require_once './view/account/list_delete.php';
+            break;
         case 'editAccount':
             if(isset($_GET['idAcc'])&& $_GET['idAcc']){
                 $id_taikhoan=$_GET['idAcc'];
@@ -284,7 +292,7 @@ if (isset($_GET['act'])) {
                     if ($check) {
                         $error = "Tài khoản này đã tồn tại!";
                     } else {
-                        updateAccount($ten_dang_nhap, $ho_va_ten, $hinh_anh, $phone, $vaitro)
+                        updateAccount($ten_dang_nhap, $ho_va_ten, $hinh_anh, $phone, $vaitro);
                         echo "<script>
                         alert('Cập nhập thành công!');
                         window.location.href = 'index.php?act=account';
